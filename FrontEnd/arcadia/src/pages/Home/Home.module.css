@@ -1,0 +1,70 @@
+/* Container Principal (Fundo escuro igual às outras páginas) */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #121212;
+  color: #fff;
+  overflow-x: hidden; /* Evita rolagem lateral indesejada */
+}
+
+/* Área do conteúdo (ParaVoce) */
+.content {
+  width: 100%;
+  max-width: 100rem; /* Convertido de 1600px */
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Necessário se as setas forem absolute */
+  padding-bottom: 2rem;
+}
+
+.setaContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2rem;
+  margin-top: 1rem; /* Espaço entre os jogos e as setas */
+  box-sizing: border-box;
+}
+
+.seta {
+  width: 3.125rem;  /* Convertido de 50px */
+  height: 3.125rem; /* Convertido de 50px */
+  background-color: #8b0000; /* Vermelho escuro */
+  border: 0.125rem solid #ff0000; /* Convertido de 2px */
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+  border-radius: 50%; /* Opcional: Deixa a seta redonda, comum em carrosséis */
+}
+
+/* Efeito ao passar o mouse */
+.seta:hover {
+  background-color: #ff0000; /* Fica vermelho vivo */
+  box-shadow: 0 0 0.625rem rgba(255, 0, 0, 0.5); /* Convertido de 10px */
+  transform: scale(1.1);
+}
+
+/* --- Responsividade --- */
+
+/* Ajustes para Tablets e Celulares */
+@media (max-width: 768px) {
+  .setaContainer {
+    padding: 0 1rem; /* Reduz o padding lateral em telas menores */
+  }
+
+  .seta {
+    /* Ajusta levemente o tamanho do botão para toque em mobile se necessário, 
+       mas 3rem é um bom tamanho para dedo */
+    width: 3rem; 
+    height: 3rem;
+  }
+}

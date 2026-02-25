@@ -1,0 +1,204 @@
+/* ----- GERAL & CONTAINER ----- */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  padding: 0 2%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Previne rolagem horizontal indesejada */
+}
+
+.footerlanding {
+  max-width: 50%;
+}
+
+.logo {
+  width: 50%;
+  max-width: 12.5rem; /* Convertido de 200px */
+  margin-top: 0.5rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  margin-right: 3rem;
+}
+
+/* ----- SEÇÃO PRINCIPAL ----- */
+.secaoprincipal {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 2rem; /* Espaço entre texto e imagem */
+}
+
+/* ----- TEXTO PRINCIPAL ----- */
+.txtsecao {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.txtsecao h1 {
+  font-family: "Poppins-Black", sans-serif;
+  font-size: 8vw;
+  margin: 0;
+  line-height: 0.95;
+  text-align: left;
+}
+
+.explore { color: #ffffff; }
+.avalie { color: #f5b402; }
+.conquiste { color: #00b6e8; }
+
+/* ----- SUBTÍTULO ----- */
+.herosubtitle {
+  margin-top: 1.5rem;
+  color: #d3d3d3;
+  font-size: 1.5vw;
+  line-height: 1.4;
+  max-width: 90%;
+}
+
+/* ----- IMAGEM DO MARIO ----- */
+.marioimage {
+  position: relative;
+  width: 40%; 
+  max-width: 43.75rem; /* Convertido de 700px */
+  min-width: 25rem;    /* Convertido de 400px - Cuidado com isso no mobile */
+  height: auto;
+  border-radius: 1.875rem; /* Convertido de 30px */
+  background-color: #00b6e8;
+  box-shadow: 1vw 1vw 0 #f5b402;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.marioimage img {
+  width: 100%; 
+  height: auto;
+  border-radius: 1.875rem; /* Convertido de 30px */
+  object-fit: contain;
+}
+
+/* ----- SEÇÃO DE CADASTRO ----- */
+.Cadastro {
+  margin-top: 1.5rem;
+  max-width: 70%;
+  padding-bottom: 3rem;
+  text-align: left; 
+}
+
+.Cadastro p {
+  font-size: 1.5vw;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.bntcadastro {
+  background-color: #f5b402;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 2.5vw;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 2.5rem; /* Convertido de 40px */
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bntcadastro:hover {
+  background-color: #ffca2c;
+}
+
+/* ----- TABLETS E NOTEBOOKS MENORES (max-width: 1366px) ----- */
+@media (max-width: 1366px) {
+  .txtsecao h1 {
+    font-size: 6vw;
+  }
+
+  .herosubtitle {
+    font-size: 1.8vw;
+  }
+
+  .marioimage {
+    min-width: 18.75rem; /* Convertido de 300px */
+  }
+
+  .bntcadastro {
+    font-size: 2vw;
+    padding: 0.7rem 1.8rem;
+  }
+}
+
+/* ----- CELULARES (max-width: 768px) ----- */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 1.5rem;
+    height: auto;
+  }
+
+  .navbar {
+    margin-right: 0;
+    flex-direction: column; 
+    align-items: center;
+  }
+
+  .secaoprincipal {
+    flex-direction: column; /* EMPILHA O CONTEÚDO */
+    align-items: center;
+    margin-top: 1rem;
+    text-align: center; 
+  }
+
+  .txtsecao {
+    align-items: center; 
+    width: 100%;
+  }
+
+  .txtsecao h1 {
+    font-size: 12vw; /* Fonte maior para ler bem no celular */
+    text-align: center;
+  }
+
+  .herosubtitle {
+    font-size: 4vw;
+    text-align: center;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .marioimage {
+    width: 80%;
+    min-width: auto; /* Remove a trava de largura mínima */
+    max-width: 21.875rem; /* Convertido de 350px */
+    margin-top: 2rem;
+    box-shadow: 2vw 2vw 0 #f5b402;
+  }
+
+  .Cadastro {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Cadastro p {
+    font-size: 4vw;
+  }
+
+  .bntcadastro {
+    font-size: 5vw;
+    width: 100%;
+    max-width: 17.5rem; /* Convertido de 280px */
+    margin-top: 1rem;
+  }
+}

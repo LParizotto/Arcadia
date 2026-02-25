@@ -1,0 +1,113 @@
+/* Container Padrão */
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Título da Página */
+.titulo {
+  font-family: 'Poppins-Light', sans-serif;
+  font-size: 1.4rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  /* Margem alinhada com o padding do grid no desktop */
+  margin-left: 4.5rem; 
+}
+
+/* Grid Responsivo */
+.grid {
+  display: grid;
+  /* IMPORTANTE: Usei a lógica do Games.jsx (auto-fill) ao invés de fixo (5) */
+  /* minmax define o tamanho mínimo do card. 12.5rem = 200px (padrão de cards verticais) */
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  /* Padding lateral ajustado */
+  padding: 0 5rem 3rem 5rem; 
+  justify-content: center; /* Centraliza os cards se sobrarem no canto */
+  box-sizing: border-box;
+}
+
+/* Wrapper para o Card + Botão ficarem juntos */
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Botão Remover */
+.removeButton {
+  width: 100%;
+  padding: 0.6rem 1.5rem; /* Ajustado */
+  margin-top: 0.5rem; /* Convertido de 8px */
+  background: #ff4d4d; /* Vermelho alerta */
+  border: none;
+  border-radius: 0.5rem; /* Convertido de 8px */
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Poppins-Regular', sans-serif;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.removeButton:hover {
+  background-color: #ff2b2b;
+  transform: translateY(-0.125rem); /* Convertido de -2px */
+}
+
+/* Estado Vazio */
+.noFav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5rem;
+  color: #aaa;
+  padding: 0 1rem;
+}
+
+.noFav h2 {
+  font-family: 'Poppins-Bold', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+/* --- RESPONSIVIDADE --- */
+
+/* Tablets (Notebooks menores) */
+@media (max-width: 1024px) {
+  .grid {
+    padding: 0 2rem 2rem 2rem; /* Reduz o padding lateral de 5rem para 2rem */
+  }
+
+  .titulo {
+    margin-left: 2rem; /* Alinha o título com o novo padding do grid */
+  }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .titulo {
+    margin-left: 0;
+    justify-content: center; /* Centraliza o título no mobile */
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .grid {
+    padding: 0 1rem 2rem 1rem; /* Padding mínimo nas laterais */
+    gap: 1rem;
+    /* Ajusta para caber 2 cards menores ou 1 grande */
+    grid-template-columns: repeat(auto-fill, minmax(9.375rem, 1fr)); 
+  }
+
+  .removeButton {
+    padding: 0.8rem; /* Botão um pouco maior para toque */
+  }
+}

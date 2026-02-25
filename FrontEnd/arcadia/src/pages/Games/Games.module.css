@@ -1,0 +1,159 @@
+/* Container principal da página */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #121212; /* Fundo escuro para combinar com o tema */
+}
+
+/* Cabeçalho que alinha o Título à esquerda e os Controles à direita */
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100rem; /* Convertido de 1600px */
+  padding: 2rem 5rem;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.titulo {
+  font-family: 'Poppins-Light', sans-serif;
+  font-size: 1.8rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+/* Agrupa o Select e a SearchBar */
+.controles {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Espaço entre o Select e a Barra */
+}
+
+.filtro {
+  /* Tamanho e Espaçamento */
+  height: 2.5rem; /* Convertido de 40px */
+  padding: 0 1.25rem; /* Convertido de 20px */
+  min-width: 13.75rem; /* Convertido de 220px */
+
+  /* Estilo Visual */
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 0.0625rem solid #444; /* Convertido de 1px */
+  border-radius: 0.9375rem; /* Convertido de 15px */
+  font-size: 0.9375rem; /* Convertido de 15px */
+  
+  /* Comportamento */
+  outline: none;
+  cursor: pointer;
+  transition: 0.2s;
+  
+  /* Fonte */
+  font-family: inherit;
+}
+
+/* Efeito ao passar o mouse ou clicar */
+.filtro:hover, .filtro:focus {
+  border-color: #777;
+  background-color: #252525;
+}
+
+/* Estiliza as opções que abrem (Dropdown) */
+.filtro option {
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 0.625rem; /* Convertido de 10px */
+}
+
+/* Grid dos Cards */
+.grid {
+  display: grid;
+  /* Mantém cards com no mínimo 200px (12.5rem), se ajustando automaticamente */
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)); 
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 100rem; /* Convertido de 1600px */
+  padding: 0 5rem;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Ajuste para telas muito grandes (Monitores 4k ou Ultrawide) */
+@media (min-width: 112.5rem) { /* Convertido de 1800px */
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+/* Botão Carregar Mais */
+.loadMore {
+  font-family: 'Poppins-Bold', sans-serif;
+  margin: 3rem auto;
+  padding: 0.8rem 2.5rem;
+  background: #ffab19;
+  color: white;
+  border: none;
+  border-radius: 0.75rem; /* Convertido de 12px */
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.loadMore:hover {
+  background-color: #ffb028;
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(255, 171, 25, 0.3);
+}
+
+/* --- RESPONSIVIDADE --- */
+
+/* Tablets e Notebooks menores */
+@media (max-width: 1024px) {
+  .headerContainer, .grid {
+    padding: 2rem 2rem; /* Reduz o padding lateral de 5rem para 2rem */
+  }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .headerContainer {
+    flex-direction: column; /* Empilha Título e Controles */
+    align-items: stretch; /* Estica para ocupar a largura */
+    gap: 1.5rem;
+    padding: 1.5rem 1rem; /* Padding lateral menor */
+  }
+
+  .titulo {
+    justify-content: center; /* Centraliza o título */
+    font-size: 1.5rem;
+  }
+
+  .controles {
+    flex-direction: column; /* Empilha SearchBar e Filtro */
+    width: 100%;
+  }
+
+  .filtro {
+    width: 100%; /* Filtro ocupa largura total para facilitar o toque */
+    min-width: auto; /* Remove a trava de largura mínima */
+  }
+
+  .grid {
+    padding: 0 1rem; /* Padding bem pequeno nas laterais do grid */
+    gap: 1rem; /* Espaço menor entre os cards */
+    /* Ajusta o grid para 2 colunas em telas médias ou 1 em muito pequenas */
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr)); 
+  }
+
+  .loadMore {
+    width: 90%; /* Botão largo no mobile */
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}
